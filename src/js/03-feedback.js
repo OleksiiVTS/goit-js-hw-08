@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
 const form = document.querySelector(".feedback-form");
-const formInput = form.addEventListener('input', _.throttle(saveValueForm, 500));
-// const formInput = form.addEventListener('input', saveValueForm);
+// const formInput = form.addEventListener('input', _.throttle(saveValueForm, 500));
+const formInput = form.addEventListener('input', saveValueForm);
 const formSubmit = form.addEventListener('submit', removeValueForm);
 const LOCALSTORAGE_KEY = "feedback-form-state";
 let saveValue = {
@@ -13,7 +13,6 @@ let saveValue = {
 getToLocalStorare();
 
 function saveValueForm(event) {
-    event.preventDefault()
     const {
         elements: { email, message }
     } = event.currentTarget;
